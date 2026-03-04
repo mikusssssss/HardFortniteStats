@@ -41,12 +41,7 @@ from rich.text import Text
 log = logging.getLogger("red")
 
 INTRO = r"""
-______         _           ______ _                       _  ______       _
-| ___ \       | |          |  _  (_)                     | | | ___ \     | |
-| |_/ /___  __| |  ______  | | | |_ ___  ___ ___  _ __ __| | | |_/ / ___ | |_
-|    // _ \/ _` | |______| | | | | / __|/ __/ _ \| '__/ _` | | ___ \/ _ \| __|
-| |\ \  __/ (_| |          | |/ /| \__ \ (_| (_) | | | (_| | | |_/ / (_) | |_
-\_| \_\___|\__,_|          |___/ |_|___/\___\___/|_|  \__,_| \____/ \___/ \__|
+goida goida goida goida goida goida goida goida goida goida goida goida goida 
 """
 
 _ = Translator(__name__, __file__)
