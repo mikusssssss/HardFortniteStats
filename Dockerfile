@@ -1,0 +1,15 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+
+COPY . .
+
+RUN pip install --no-cache-dir -e .
+
+# create data directory
+RUN mkdir -p /data
+
+# variablles + prefix
+CMD redbot --no-prompt --token $BOT_TOKEN --prefix "$BOT_PREFIX" "$BOT_INSTANCE_NAME"
