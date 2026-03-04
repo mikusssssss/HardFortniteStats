@@ -31,7 +31,7 @@ def format_duration(start_time_str):
     except Exception:
         return "Unknown"
 
-class ServerStatus(commands.Cog):
+class serverstatus(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -75,4 +75,4 @@ class ServerStatus(commands.Cog):
         await ctx.send(embed=embed)
 
 async def setup(bot):
-    await bot.add_cog(ServerStatus(bot))
+    await bot.add_cog(serverstatus(bot))
