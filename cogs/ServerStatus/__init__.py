@@ -1,4 +1,4 @@
-from .serverstatus import ServerStatus
+from .serverstatus import serverstatus
 
 async def setup(bot):
-    await bot.add_cog(ServerStatus(bot))
+    await bot.add_cog(serverstatus(bot))
