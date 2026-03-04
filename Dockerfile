@@ -12,4 +12,4 @@ RUN pip install --no-cache-dir -e .
 RUN mkdir -p /data
 
 # variablles + prefix
-CMD redbot --no-prompt --token $BOT_TOKEN --prefix "$BOT_PREFIX" --data-path /data "$BOT_INSTANCE_NAME"
+CMD redbot "$BOT_INSTANCE_NAME" --no-prompt --token "$BOT_TOKEN" --prefix "$BOT_PREFIX"
