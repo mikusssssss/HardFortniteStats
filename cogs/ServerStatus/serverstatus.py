@@ -60,7 +60,7 @@ class ServerStatus(commands.Cog):
                                 if run_level == 0:
                                     shift = " Lobby"
                                 elif round_start:
-                                    shift = f"Shift time {format_duration(round_start)}"
+                                    shift = f"{format_duration(round_start)}"
                                 else:
                                     shift = "Unknown"
 
