@@ -12,4 +12,4 @@ RUN pip install --no-cache-dir -e .
 RUN mkdir -p /data
 
 # variablles + prefix
-CMD redbot-setup --instance-name "$BOT_INSTANCE_NAME" --data-path /data --backend JSON --token "$BOT_TOKEN" --prefix "$BOT_PREFIX" --no-prompt && redbot "$BOT_INSTANCE_NAME" --no-prompt --token "$BOT_TOKEN" --prefix "$BOT_PREFIX"
+CMD redbot-setup --instance-name "$BOT_INSTANCE_NAME" --data-path /data --backend JSON --no-prompt && redbot "$BOT_INSTANCE_NAME" --no-prompt --token "$BOT_TOKEN" --prefix "$BOT_PREFIX"
