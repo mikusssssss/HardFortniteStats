@@ -1,6 +1,7 @@
 from redbot.core import commands
 import discord
 import aiohttp
+from datetime import datetime, timezone
 
 SERVERS = {
     "Goob Station": [
@@ -15,6 +16,20 @@ SERVERS = {
         ("Alamo", "https://alamo.rouny-ss14.com/status"),
     ],
 }
+
+def format_duration(start_time_str):
+    try:
+        start_time = datetime.fromisoformat(start_time_str.replace("Z", "+00:00"))
+        now = datetime.now(timezone.utc)
+        delta = now - start_time
+        total_minutes = int(delta.total_seconds() // 60)
+        hours = total_minutes // 60
+        minutes = total_minutes % 60
+        if hours > 0:
+            return f"{hours}h {minutes}m"
+        return f"{minutes}m"
+    except Exception:
+        return "Unknown"
 
 class ServerStatus(commands.Cog):
     def __init__(self, bot):
@@ -39,7 +54,17 @@ class ServerStatus(commands.Cog):
                                 soft_max = data.get("soft_max_players", "?")
                                 map_name = data.get("map", "?")
                                 real_name = data.get("name", name)
-                                field_value += f"🟢 **{real_name}**\nPlayers: {players}/{soft_max} | Map: {map_name}\n\n"
+                                round_start = data.get("round_start_time")
+                                run_level = data.get("run_level", 0)
+
+                                if run_level == 0:
+                                    shift = " Lobby"
+                                elif round_start:
+                                    shift = f"Shift time {format_duration(round_start)}"
+                                else:
+                                    shift = "Unknown"
+
+                                field_value += f"🟢 **{real_name}**\nPlayers: {players}/{soft_max} | Map: {map_name} | Shift: {shift}\n\n"
                             else:
                                 field_value += f"🔴 **{name}**\nServer unreachable\n\n"
                     except Exception:
