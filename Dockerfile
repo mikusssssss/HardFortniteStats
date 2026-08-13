@@ -12,4 +12,4 @@ RUN pip install --no-cache-dir -e .
 RUN mkdir -p /data
 
 # variablles + prefix
-CMD redbot-setup --instance-name "$BOT_INSTANCE_NAME" --data-path /data --backend json --no-prompt --overwrite-existing-instance && redbot "$BOT_INSTANCE_NAME" --no-prompt --token "$BOT_TOKEN" --prefix "$BOT_PREFIX" --owner "$BOT_OWNER_ID" --co-owner "$BOT_COOWNER_ID" --message-cache-size 100
+CMD redbot-setup --instance-name "$BOT_INSTANCE_NAME" --data-path /data --backend json --no-prompt --overwrite-existing-instance && redbot "$BOT_INSTANCE_NAME" --no-prompt --token "$BOT_TOKEN" --prefix "$BOT_PREFIX" --owner "$BOT_OWNER_ID" --co-owner "$BOT_COOWNER_ID" --message-cache-size 1000
